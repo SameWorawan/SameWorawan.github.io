@@ -5,7 +5,7 @@
   <title>Worawan Phanchanghan | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ฟอนต์สวย ๆ -->
+  <!-- ฟอนต์ -->
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -202,13 +202,15 @@
       border: 1px solid rgba(148, 163, 184, 0.25);
     }
 
+    /* รูปโปรไฟล์ */
     .avatar {
-      width: 96px;
-      height: 96px;
+      width: 120px;
+      height: 120px;
       border-radius: 999px;
-      background: conic-gradient(from 210deg, #fb7185, #f97316, #22c55e, #fb7185);
       padding: 2px;
+      background: conic-gradient(from 210deg, #fb7185, #f97316, #22c55e, #fb7185);
       margin-bottom: 1rem;
+      overflow: hidden;
     }
 
     .avatar-inner {
@@ -219,6 +221,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .avatar-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .avatar-placeholder {
       font-weight: 700;
       font-size: 2.1rem;
       color: #e5e7eb;
@@ -357,6 +369,21 @@
       color: #fbbf24;
     }
 
+    /* Power BI iframe ให้เป็น responsive */
+    .pbi-container {
+      margin-top: 1rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow);
+    }
+
+    .pbi-container iframe {
+      width: 100%;
+      height: 720px; /* ปรับสูง–ต่ำได้ตามที่ต้องการ */
+      border: 0;
+    }
+
     footer {
       text-align: center;
       padding: 1.7rem 1rem 2.3rem;
@@ -390,10 +417,10 @@
       สวัสดีครับ ผม
       <span class="hero-highlight">วรวรรติ์ ผ่านจังหาร</span>
     </h1>
-    <p className="hero-sub hero-sub">
+    <p class="hero-sub">
       นักศึกษาปีที่ 4 คณะวิทยาศาสตร์ สาขาเทคโนโลยีสารสนเทศ
       มหาวิทยาลัยราชภัฏอุดรธานี สนใจด้าน E-commerce, AI,
-      รวมถึงเทคโนโลยีใหม่ ๆ อย่าง Blockchain และ Computational Psychology
+      Blockchain และ Computational Psychology
     </p>
 
     <div class="hero-tags">
@@ -416,35 +443,10 @@
 
   <aside class="hero-card">
     <div class="avatar">
-      <div class="avatar-inner">WP</div>
-    </div>
-    <dl>
-      <dt>ชื่อ (TH)</dt>
-      <dd>นาย วรวรรติ์ ผ่านจังหาร</dd>
-
-      <dt>Name (EN)</dt>
-      <dd>Mr. Worawan Phanchanghan</dd>
-
-      <dt>คณะ / สาขา</dt>
-      <dd>วิทยาศาสตร์ – เทคโนโลยีสารสนเทศ (IT)</dd>
-
-      <dt>สถานะ</dt>
-      <dd>นักศึกษา ปีที่ 4, มหาวิทยาลัยราชภัฏอุดรธานี</dd>
-
-      <dt>สนใจพิเศษ</dt>
-      <dd>Blockchain, AI, Computational Psychology</dd>
-    </dl>
-  </aside>
-</header>
-
-<main>
-
-  <!-- PROFILE & SKILLS -->
-  <div class="section-grid">
-    <!-- 1. Profile -->
-    <section class="card" id="profile">
-      <h2><span class="section-number">1.</span> ส่วนแนะนำตัว (Introduction / Profile)</h2>
-      <p class="subheading">จุดประสงค์:</p>
-      <p style="font-size:0.93rem;">
-        แนะนำตัวในฐานะนักศึกษา IT ที่สนใจ E-commerce และ AI
-        พร้อมเปิดรับโอกาส
+      <div class="avatar-inner">
+        <!--
+          เปลี่ยนรูปโปรไฟล์ของคุณได้ที่นี่:
+          1. อัปโหลดไฟล์รูปไปใน GitHub repo เดียวกับ index.html
+          2. เปลี่ยน src="my-photo.jpg" ให้ตรงกับชื่อไฟล์ของคุณ เช่น src="worawan.jpg"
+        -->
+        <i
