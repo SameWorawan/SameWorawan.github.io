@@ -5,7 +5,7 @@
   <title>Worawan Phanchanghan | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ฟอนต์ -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -21,28 +21,18 @@
       --radius-lg: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: "Sarabun", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: "Sarabun", sans-serif;
       background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
       color: var(--text);
       line-height: 1.7;
     }
 
-    a {
-      color: #60a5fa;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: #60a5fa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     /* NAVBAR */
     .nav {
@@ -50,351 +40,147 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.95),
-        rgba(15, 23, 42, 0.75),
-        transparent
-      );
+      background: rgba(15, 23, 42, 0.85);
       border-bottom: 1px solid rgba(148, 163, 184, 0.15);
     }
-
     .nav-inner {
       max-width: 1120px;
-      margin: 0 auto;
-      padding: 0.6rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
+      margin: auto;
+      padding: 0.7rem 1.2rem;
+      display: flex; justify-content: space-between; align-items: center;
     }
-
-    .nav-title {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      font-size: 1.05rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      font-size: 0.9rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
+    .nav-title { font-weight: 700; font-size: 1.05rem; }
+    .nav-links { display: flex; gap: 1rem; }
     .nav-links a {
       padding: 0.25rem 0.6rem;
       border-radius: 999px;
-      border: 1px solid transparent;
       color: var(--muted);
     }
-
     .nav-links a:hover {
-      border-color: rgba(148, 163, 184, 0.35);
-      color: #e5e7eb;
-      text-decoration: none;
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
     }
 
-    /* HERO */
+    /* HERO SECTION */
     header.hero {
       max-width: 1120px;
-      margin: 1.6rem auto 2rem;
-      padding: 0 1.25rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
       display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
-      gap: 1.8rem;
-      align-items: center;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 2rem;
     }
-
-    @media (max-width: 840px) {
-      header.hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    @media(max-width:850px){
+      header.hero{ grid-template-columns: 1fr; }
     }
 
     .hero-text h1 {
-      font-size: clamp(1.9rem, 3vw, 2.4rem);
-      margin: 0 0 0.4rem;
+      font-size: 2.4rem;
+      margin-bottom: 0.4rem;
     }
+    .hero-highlight { color: var(--accent); }
+    .hero-sub { color: var(--muted); max-width: 500px; }
 
-    .hero-highlight {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .hero-sub {
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-      max-width: 520px;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.4rem;
-    }
-
+    .hero-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin:1rem 0; }
     .pill {
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 0.2rem 0.7rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.65);
+      padding:0.2rem 0.7rem;
+      border-radius:999px;
+      background:rgba(255,255,255,0.06);
+      font-size:0.8rem;
     }
-
-    .pill-accent {
-      background: var(--accent-soft);
-      border-color: rgba(248, 113, 113, 0.7);
-      color: #fecaca;
-      font-weight: 600;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-    }
+    .pill-accent { background: var(--accent-soft); color:#ffb3b3; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.55rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      font-size: 0.85rem;
-      cursor: pointer;
-      background: transparent;
-      color: var(--text);
-      text-decoration: none;
-      gap: 0.35rem;
-      transition: transform 0.1s ease, box-shadow 0.1s ease,
-        background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
+      padding:0.55rem 1.1rem;
+      border-radius:999px;
+      display:inline-block;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.2);
+      margin-right:0.5rem;
     }
-
     .btn-primary {
       background: linear-gradient(135deg, #fb7185, #f97316);
-      border-color: transparent;
-      box-shadow: 0 15px 35px rgba(248, 113, 113, 0.35);
-      color: #0f172a;
-      font-weight: 600;
+      border:none;
+      color:#0f172a;
+      font-weight:600;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
-      text-decoration: none;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(15, 23, 42, 0.95);
-    }
-
+    /* HERO CARD */
     .hero-card {
-      background: radial-gradient(circle at top left, #1e293b 0, #020617 55%);
-      border-radius: 24px;
-      padding: 1.7rem 1.6rem;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(148, 163, 184, 0.25);
+      background:#0f172a;
+      padding:1.6rem;
+      border-radius:20px;
+      border:1px solid #1f2937;
+      box-shadow:var(--shadow);
     }
-
-    /* รูปโปรไฟล์ */
     .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 999px;
-      padding: 2px;
-      background: conic-gradient(from 210deg, #fb7185, #f97316, #22c55e, #fb7185);
-      margin-bottom: 1rem;
-      overflow: hidden;
+      width:130px; height:130px; border-radius:50%; overflow:hidden;
+      margin-bottom:1rem;
+      border:3px solid #fb7185;
+    }
+    .avatar img {
+      width:100%; height:100%; object-fit:cover;
     }
 
-    .avatar-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: inherit;
-      background: #020617;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    dl dt { font-weight:600; color:var(--muted); margin-top:0.5rem; }
+    dl dd { margin:0; }
 
-    .avatar-inner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: inherit;
-    }
-
-    .avatar-placeholder {
-      font-weight: 700;
-      font-size: 2.1rem;
-      color: #e5e7eb;
-    }
-
-    .hero-card dl {
-      margin: 0;
-      font-size: 0.9rem;
-    }
-
-    .hero-card dt {
-      font-weight: 600;
-      color: var(--muted);
-      margin-top: 0.3rem;
-    }
-
-    .hero-card dd {
-      margin: 0;
-    }
-
-    /* MAIN SECTIONS */
-    main {
-      max-width: 1120px;
-      margin: 0 auto 3rem;
-      padding: 0 1.25rem;
-    }
+    /* SECTIONS GRID */
+    main { max-width:1120px; margin:auto; padding:1rem; }
 
     .section-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
-      gap: 1.6rem;
+      display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;
     }
-
-    @media (max-width: 860px) {
-      .section-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    @media(max-width:850px){
+      .section-grid{ grid-template-columns:1fr; }
     }
 
     .card {
-      background: radial-gradient(circle at top left, #111827 0, #020617 55%);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 1.6rem;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
+      background:#0f172a;
+      padding:1.6rem;
+      border-radius:20px;
+      border:1px solid #1f2937;
+      box-shadow:var(--shadow);
     }
+    h2{ font-size:1.3rem; color:var(--accent); }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at top left,
-        rgba(248, 113, 113, 0.18),
-        transparent 55%
-      );
-      opacity: 0;
-      transition: opacity 0.18s ease;
-      pointer-events: none;
-    }
+    ul { margin-left:1.2rem; font-size:0.95rem; }
 
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card h2 {
-      margin-top: 0;
-      font-size: 1.15rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.2rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-    }
-
-    .section-number {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    ul {
-      margin: 0.35rem 0 0.35rem 1.1rem;
-      padding: 0;
-      font-size: 0.92rem;
-    }
-
-    li {
-      margin-bottom: 0.18rem;
-    }
-
-    .subheading {
-      font-weight: 600;
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.35rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .chip {
-      padding: 0.18rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .chip-strong {
-      background: rgba(248, 113, 113, 0.15);
-      border-color: rgba(248, 113, 113, 0.7);
-      color: #fecaca;
-      font-weight: 600;
-    }
-
-    .contact-box {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 12px;
-      padding: 0.9rem 1rem;
-      border: 1px dashed rgba(148, 163, 184, 0.6);
-      font-size: 0.93rem;
-    }
-
-    .goal-highlight {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #fbbf24;
-    }
-
-    /* Power BI iframe ให้เป็น responsive */
+    /* Power BI */
     .pbi-container {
-      margin-top: 1rem;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: var(--shadow);
+      margin-top:1rem;
+      border:1px solid #1f2937;
+      overflow:hidden;
+      border-radius:16px;
+      box-shadow:var(--shadow);
     }
-
     .pbi-container iframe {
-      width: 100%;
-      height: 720px; /* ปรับสูง–ต่ำได้ตามที่ต้องการ */
-      border: 0;
+      width:100%;
+      height:720px;
+      border:none;
     }
 
-    footer {
-      text-align: center;
-      padding: 1.7rem 1rem 2.3rem;
-      font-size: 0.8rem;
-      color: var(--muted);
+    /* CONTACT */
+    .contact-box{
+      background:rgba(255,255,255,0.05);
+      padding:1rem;
+      border-radius:12px;
+      margin-top:1rem;
+      border:1px dashed rgba(255,255,255,0.3);
+    }
+
+    footer{
+      text-align:center;
+      padding:2rem;
+      color:var(--muted);
+      font-size:0.85rem;
     }
   </style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <div class="nav-title">Worawan Phanchanghan</div>
@@ -411,42 +197,144 @@
 </nav>
 
 <!-- HERO -->
-<header class="hero" id="top">
+<header class="hero">
   <div class="hero-text">
-    <h1>
-      สวัสดีครับ ผม
-      <span class="hero-highlight">วรวรรติ์ ผ่านจังหาร</span>
-    </h1>
+    <h1>ผมคือ <span class="hero-highlight">วรวรรติ์ ผ่านจังหาร</span></h1>
     <p class="hero-sub">
-      นักศึกษาปีที่ 4 คณะวิทยาศาสตร์ สาขาเทคโนโลยีสารสนเทศ
-      มหาวิทยาลัยราชภัฏอุดรธานี สนใจด้าน E-commerce, AI,
-      Blockchain และ Computational Psychology
+      นักศึกษาปีที่ 4 สาขาเทคโนโลยีสารสนเทศ (IT)  
+      มหาวิทยาลัยราชภัฏอุดรธานี  
+      สนใจด้าน E-commerce, AI, Blockchain และ Computational Psychology
     </p>
 
     <div class="hero-tags">
       <span class="pill pill-accent">IT Student @ UDRU</span>
+      <span class="pill">AI</span>
       <span class="pill">E-commerce</span>
-      <span class="pill">AI &amp; Data</span>
       <span class="pill">Blockchain</span>
-      <span class="pill">Power BI Dashboard</span>
+      <span class="pill">Power BI</span>
     </div>
 
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">
-        ดูผลงาน (Projects) →
-      </a>
-      <a href="#contact" class="btn btn-secondary">
-        ติดต่อผม
-      </a>
-    </div>
+    <a href="#projects" class="btn btn-primary">ดูผลงาน →</a>
+    <a href="#contact" class="btn">ติดต่อ</a>
   </div>
 
-  <aside class="hero-card">
+  <div class="hero-card">
     <div class="avatar">
-      <div class="avatar-inner">
-        <!--
-          เปลี่ยนรูปโปรไฟล์ของคุณได้ที่นี่:
-          1. อัปโหลดไฟล์รูปไปใน GitHub repo เดียวกับ index.html
-          2. เปลี่ยน src="my-photo.jpg" ให้ตรงกับชื่อไฟล์ของคุณ เช่น src="worawan.jpg"
-        -->
-        <i
+      <!-- เปลี่ยนรูปของคุณที่นี่ -->
+      <img src="worawanSame.jpg" alt="Worawan Profile">
+    </div>
+
+    <dl>
+      <dt>ชื่อ (ไทย)</dt><dd>นาย วรวรรติ์ ผ่านจังหาร</dd>
+      <dt>ชื่อ (อังกฤษ)</dt><dd>Mr. Worawan Phanchanghan</dd>
+      <dt>คณะ</dt><dd>วิทยาศาสตร์</dd>
+      <dt>สาขา</dt><dd>เทคโนโลยีสารสนเทศ (IT)</dd>
+      <dt>มหาวิทยาลัย</dt><dd>ราชภัฏอุดรธานี</dd>
+      <dt>ความสนใจ</dt><dd>AI, Blockchain, Computational Psychology</dd>
+    </dl>
+  </div>
+</header>
+
+<main>
+
+<!-- PROFILE + SKILLS -->
+<div class="section-grid">
+  <section class="card" id="profile">
+    <h2>1. ส่วนแนะนำตัว</h2>
+    <ul>
+      <li>สนใจ E-commerce และ AI</li>
+      <li>ชอบเรียนรู้เทคโนโลยีใหม่ ๆ และงานวิเคราะห์ข้อมูล</li>
+      <li>มีพื้นฐานด้านเขียนโปรแกรมและระบบสารสนเทศ</li>
+    </ul>
+  </section>
+
+  <section class="card" id="skills">
+    <h2>2. ทักษะ (Skills)</h2>
+
+    <h3>Programming</h3>
+    <ul><li>Python</li><li>Java</li><li>HTML/CSS</li><li>Apps Script</li></ul>
+
+    <h3>AI & Data</h3>
+    <ul><li>Power BI</li><li>TensorFlow</li><li>SQL</li></ul>
+
+    <h3>Tools</h3>
+    <ul><li>Git</li><li>VS Code</li><li>Google Apps Script</li><li>Visual Studio Insiders</li></ul>
+
+    <h3>Soft Skills</h3>
+    <ul>
+      <li>การสื่อสาร</li>
+      <li>การทำงานเป็นทีม</li>
+      <li>การแก้ปัญหาเฉพาะหน้า</li>
+    </ul>
+  </section>
+</div>
+
+<!-- PROJECTS + EDUCATION -->
+<div class="section-grid">
+
+  <section class="card" id="projects">
+    <h2>3. ผลงานที่ผ่านมา (Projects)</h2>
+    <p>ผลงาน Power BI Dashboard แบบเต็ม สามารถกดดูและเลื่อนดูทุกหน้าได้:</p>
+
+    <div class="pbi-container">
+      <iframe 
+        src="https://app.powerbi.com/links/angwpUIAog?ctid=2f590d6f-7af9-4983-96c6-46c8758cdef8&pbi_source=linkShare"
+        allowfullscreen="true">
+      </iframe>
+    </div>
+  </section>
+
+  <section class="card" id="education">
+    <h2>4. การศึกษา</h2>
+    <ul>
+      <li>คณะวิทยาศาสตร์</li>
+      <li>สาขาเทคโนโลยีสารสนเทศ (IT)</li>
+      <li>มหาวิทยาลัยราชภัฏอุดรธานี</li>
+      <li>นักศึกษา ชั้นปีที่ 4</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- ACTIVITIES + CONTACT + GOAL -->
+<div class="section-grid">
+
+  <section class="card" id="activities">
+    <h2>5. กิจกรรมและผลงานอื่น ๆ</h2>
+    <ul>
+      <li>เข้าร่วมกิจกรรมด้านเทคโนโลยีและ AI</li>
+      <li>พัฒนา Dashboard วิเคราะห์ข้อมูล</li>
+      <li>สนใจสร้างโปรเจกต์ผสมผสาน AI + Blockchain + E-commerce</li>
+    </ul>
+  </section>
+
+  <section class="card" id="contact">
+    <h2>6. ช่องทางติดต่อ</h2>
+
+    <div class="contact-box">
+      <p><strong>เบอร์โทร:</strong> 095-247-3027</p>
+      <p><strong>Email:</strong>  
+        <a href="mailto:65040233129@udru.ac.th">65040233129@udru.ac.th</a>
+      </p>
+    </div>
+
+    <h2 id="goal" style="margin-top:2rem;">7. เป้าหมายในอนาคต</h2>
+    <p style="font-size:1.1rem; color:#ffdd55;">
+      “อยากเป็นราชาโจรสลัด” 🏴‍☠️
+    </p>
+    <p>
+      หมายถึงการสร้างเส้นทางของตัวเอง กล้าลอง กล้าฝัน  
+      และเป็นคนที่ไม่หยุดพัฒนาตัวเอง เช่นเดียวกับการผจญภัยในโลกเทคโนโลยี
+    </p>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+  © 2025 Worawan Phanchanghan – GitHub.io Portfolio
+</footer>
+
+</body>
+</html>
