@@ -4,182 +4,447 @@
   <meta charset="UTF-8" />
   <title>Worawan Phanchanghan | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ฟอนต์สวย ๆ -->
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg: #050816;
+      --card: #0f172a;
+      --accent: #ff6b6b;
+      --accent-soft: rgba(255, 107, 107, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
-      background: #fafafa;
-      color: #222;
+      font-family: "Sarabun", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
+      color: var(--text);
       line-height: 1.7;
     }
-    header {
-      background: #111;
-      color: #fff;
-      padding: 2rem 1rem;
+
+    a {
+      color: #60a5fa;
+      text-decoration: none;
     }
-    header .container {
-      max-width: 1080px;
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* NAVBAR */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.75),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
       margin: 0 auto;
+      padding: 0.6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
     }
-    h1 {
-      margin: 0;
-      font-size: 2.4rem;
+
+    .nav-title {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 1.05rem;
     }
-    hr {
-      margin: 2rem 0;
-      opacity: 0.2;
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
-    main {
-      max-width: 1080px;
-      margin: 2rem auto;
-      padding: 0 1rem 3rem;
-    }
-    section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 1.5rem 1.7rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-    }
-    h2 {
-      margin-top: 0;
-      font-size: 1.4rem;
-      color: #e53935;
-    }
-    ul { margin-left: 1.2rem; }
-    li { margin-bottom: 0.2rem; }
-    .avatar {
-      width: 110px;
-      height: 110px;
+
+    .nav-links a {
+      padding: 0.25rem 0.6rem;
       border-radius: 999px;
-      background: linear-gradient(135deg, #e53935, #fb8c00);
+      border: 1px solid transparent;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(148, 163, 184, 0.35);
+      color: #e5e7eb;
+      text-decoration: none;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    /* HERO */
+    header.hero {
+      max-width: 1120px;
+      margin: 1.6rem auto 2rem;
+      padding: 0 1.25rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    @media (max-width: 840px) {
+      header.hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-text h1 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      margin: 0 0 0.4rem;
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      max-width: 520px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 0.2rem 0.7rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.65);
+    }
+
+    .pill-accent {
+      background: var(--accent-soft);
+      border-color: rgba(248, 113, 113, 0.7);
+      color: #fecaca;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.85rem;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text);
+      text-decoration: none;
+      gap: 0.35rem;
+      transition: transform 0.1s ease, box-shadow 0.1s ease,
+        background 0.1s ease, border-color 0.1s ease, color 0.1s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #fb7185, #f97316);
+      border-color: transparent;
+      box-shadow: 0 15px 35px rgba(248, 113, 113, 0.35);
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 55%);
+      border-radius: 24px;
+      padding: 1.7rem 1.6rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      background: conic-gradient(from 210deg, #fb7185, #f97316, #22c55e, #fb7185);
+      padding: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #020617;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
       font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 2.1rem;
+      color: #e5e7eb;
     }
-    .tag {
-      display: inline-block;
-      padding: 0.15rem 0.55rem;
-      margin: 0.1rem;
+
+    .hero-card dl {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .hero-card dt {
+      font-weight: 600;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    .hero-card dd {
+      margin: 0;
+    }
+
+    /* MAIN SECTIONS */
+    main {
+      max-width: 1120px;
+      margin: 0 auto 3rem;
+      padding: 0 1.25rem;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+      gap: 1.6rem;
+    }
+
+    @media (max-width: 860px) {
+      .section-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.6rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at top left,
+        rgba(248, 113, 113, 0.18),
+        transparent 55%
+      );
+      opacity: 0;
+      transition: opacity 0.18s ease;
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.8rem;
       border-radius: 999px;
-      background: #ffebee;
-      color: #c62828;
-      font-size: 0.85rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
     }
+
+    .section-number {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul {
+      margin: 0.35rem 0 0.35rem 1.1rem;
+      padding: 0;
+      font-size: 0.92rem;
+    }
+
+    li {
+      margin-bottom: 0.18rem;
+    }
+
+    .subheading {
+      font-weight: 600;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .chip {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .chip-strong {
+      background: rgba(248, 113, 113, 0.15);
+      border-color: rgba(248, 113, 113, 0.7);
+      color: #fecaca;
+      font-weight: 600;
+    }
+
+    .contact-box {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      font-size: 0.93rem;
+    }
+
+    .goal-highlight {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fbbf24;
+    }
+
     footer {
       text-align: center;
-      padding: 1.5rem;
-      font-size: 0.85rem;
-      color: #666;
+      padding: 1.7rem 1rem 2.3rem;
+      font-size: 0.8rem;
+      color: var(--muted);
     }
-    a { color: #1565c0; text-decoration: none; }
-    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1>Worawan Phanchanghan</h1>
-    <p>Student Portfolio & GitHub.io Profile</p>
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-title">Worawan Phanchanghan</div>
+    <div class="nav-links">
+      <a href="#profile">Profile</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#activities">Activities</a>
+      <a href="#contact">Contact</a>
+      <a href="#goal">Future Goal</a>
+    </div>
   </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-text">
+    <h1>
+      สวัสดีครับ ผม
+      <span class="hero-highlight">วรวรรติ์ ผ่านจังหาร</span>
+    </h1>
+    <p className="hero-sub hero-sub">
+      นักศึกษาปีที่ 4 คณะวิทยาศาสตร์ สาขาเทคโนโลยีสารสนเทศ
+      มหาวิทยาลัยราชภัฏอุดรธานี สนใจด้าน E-commerce, AI,
+      รวมถึงเทคโนโลยีใหม่ ๆ อย่าง Blockchain และ Computational Psychology
+    </p>
+
+    <div class="hero-tags">
+      <span class="pill pill-accent">IT Student @ UDRU</span>
+      <span class="pill">E-commerce</span>
+      <span class="pill">AI &amp; Data</span>
+      <span class="pill">Blockchain</span>
+      <span class="pill">Power BI Dashboard</span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">
+        ดูผลงาน (Projects) →
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        ติดต่อผม
+      </a>
+    </div>
+  </div>
+
+  <aside class="hero-card">
+    <div class="avatar">
+      <div class="avatar-inner">WP</div>
+    </div>
+    <dl>
+      <dt>ชื่อ (TH)</dt>
+      <dd>นาย วรวรรติ์ ผ่านจังหาร</dd>
+
+      <dt>Name (EN)</dt>
+      <dd>Mr. Worawan Phanchanghan</dd>
+
+      <dt>คณะ / สาขา</dt>
+      <dd>วิทยาศาสตร์ – เทคโนโลยีสารสนเทศ (IT)</dd>
+
+      <dt>สถานะ</dt>
+      <dd>นักศึกษา ปีที่ 4, มหาวิทยาลัยราชภัฏอุดรธานี</dd>
+
+      <dt>สนใจพิเศษ</dt>
+      <dd>Blockchain, AI, Computational Psychology</dd>
+    </dl>
+  </aside>
 </header>
 
 <main>
 
-  <!-- 1. Introduction -->
-  <section>
-    <h2>1. ส่วนแนะนำตัว (Introduction / Profile)</h2>
-    <div class="avatar">WP</div>
-
-    <ul>
-      <li><strong>ชื่อ–นามสกุล:</strong> นาย วรวรรติ์ ผ่านจังหาร</li>
-      <li><strong>Name:</strong> Mr. Worawan Phanchanghan</li>
-      <li><strong>สถานะ:</strong> นักศึกษา ปีที่ 4</li>
-      <li><strong>คณะ:</strong> วิทยาศาสตร์</li>
-      <li><strong>สาขา:</strong> เทคโนโลยีสารสนเทศ (IT)</li>
-      <li><strong>มหาวิทยาลัย:</strong> มหาวิทยาลัยราชภัฏอุดรธานี</li>
-      <li><strong>จุดประสงค์:</strong> สนใจเกี่ยวกับ E-commerce และ AI</li>
-      <li><strong>ความสนใจเฉพาะ:</strong> Blockchain, AI, Computational Psychology</li>
-    </ul>
-
-    <p>
-      <span class="tag">Blockchain</span>
-      <span class="tag">AI</span>
-      <span class="tag">Computational Psychology</span>
-      <span class="tag">E-commerce</span>
-    </p>
-  </section>
-
-  <!-- 2. Skills -->
-  <section>
-    <h2>2. ทักษะ (Skills)</h2>
-
-    <p><strong>Programming</strong></p>
-    <ul>
-      <li>Python</li>
-      <li>Java</li>
-      <li>HTML / CSS</li>
-      <li>Apps Script</li>
-    </ul>
-
-    <p><strong>AI & Data</strong></p>
-    <ul>
-      <li>Power BI</li>
-      <li>TensorFlow</li>
-      <li>SQL</li>
-    </ul>
-
-    <p><strong>Tools</strong></p>
-    <ul>
-      <li>GIT</li>
-      <li>VS Code</li>
-      <li>Google Apps Script</li>
-      <li>Visual Studio Insiders</li>
-    </ul>
-
-    <p><strong>Soft Skills</strong></p>
-    <ul>
-      <li>การสื่อสาร</li>
-      <li>การทำงานเป็นทีม</li>
-      <li>การแก้ปัญหาเฉพาะหน้า</li>
-    </ul>
-  </section>
-
-  <!-- 3. Projects -->
-  <section>
-    <h2>3. ผลงานที่ผ่านมา (Projects / Portfolio)</h2>
-
-    <p><strong>Dashboards จาก Power BI</strong></p>
-    <p>คุณสามารถใส่ลิงก์ผลงานที่นี่ เช่น:</p>
-
-    <ul>
-      <li><a href="#" target="_blank">🔗 ลิงก์ Power BI Dashboard</a></li>
-    </ul>
-
-    <p>ถ้ามี screenshot เดี๋ยวผมสามารถจัดวางแบบสวย ๆ ให้ได้</p>
-  </section>
-
-  <!-- 4. Education -->
-  <section>
-    <h2>4. การศึกษา (Education)</h2>
-
-    <ul>
-      <li>คณะวิทยาศาสตร์</li>
-      <li>สาขาเทคโนโลยีสารสนเทศ (IT)</li>
-      <li>มหาวิทยาลัยราชภัฏอุดรธานี</li>
-    </ul>
-  </section>
-
-</main>
-
-<footer>
-  © 2025 Worawan Phanchanghan – GitHub.io Portfolio
-</footer>
-
-</body>
-</html>
+  <!-- PROFILE & SKILLS -->
+  <div class="section-grid">
+    <!-- 1. Profile -->
+    <section class="card" id="profile">
+      <h2><span class="section-number">1.</span> ส่วนแนะนำตัว (Introduction / Profile)</h2>
+      <p class="subheading">จุดประสงค์:</p>
+      <p style="font-size:0.93rem;">
+        แนะนำตัวในฐานะนักศึกษา IT ที่สนใจ E-commerce และ AI
+        พร้อมเปิดรับโอกาส
